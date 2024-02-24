@@ -26,7 +26,7 @@ const Footer: FC = () => {
 					{
 						<NavList
 							links={links}
-							className="flex gap-5"
+							align="row"
 						/>
 					}
 				</div>
