@@ -5,8 +5,13 @@ import { useContext, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { AnimationSlider } from "@/components/Input/Slider";
 import { SelectSorting } from "@/components/Input/Select";
-import { algorithmOptions, generateAnimationArray } from "@/lib/utils";
+import {
+	algorithmOptions,
+	generateAnimationArray,
+	sortingAlgorithmsData,
+} from "@/lib/utils";
 import { SortingAlgorithmType } from "@/lib/types";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 export default function Home() {
 	const {
@@ -45,13 +50,13 @@ export default function Home() {
 	};
 
 	return (
-		<main className="mt-[3.9rem] h-screen w-screen z-[-2]">
+		<main className="mt-[3.9rem] h-screen w-screen z-1">
 			<div className="flex h-full justify-center">
 				<div
 					id="content-container"
 					className="flex max-w-[1020px] w-full flex-col lg:px-0 px-4"
 				>
-					<div className="flex md:flex-row flex-col gap-5 items-center justify-between">
+					<div className="flex md:hidden flex-col gap-5 items-center justify-between">
 						<div>
 							<AnimationSlider
 								isDisabled={isSorting}
@@ -112,6 +117,40 @@ export default function Home() {
 							</Button>
 						</div>
 					</div>
+					<div className="md:mt-0 mt-5 flex md:flex-row flex-col justify-between items-center w-full">
+						<div className="flex flex-col item-start justify-start w-full">
+							<h1 className="text-4xl font-bold md:text-left text-center">
+								{sortingAlgorithmsData[selectedAlgorithm].title}
+							</h1>
+							<p className="text-lg mt-4 hidden md:flex md:text-left text-center">
+								{
+									sortingAlgorithmsData[selectedAlgorithm]
+										.description
+								}
+							</p>
+						</div>
+						<div className="flex flex-col item-end justify-end w-full">
+							<h3 className="text-2xl font-bold md:text-right text-center">
+								Time Complexity
+							</h3>
+							<div className="md:text-right text-center">
+								<p>
+									Worst Case:{" "}
+									{
+										sortingAlgorithmsData[selectedAlgorithm]
+											.worstCase
+									}
+								</p>
+								<p>
+									Average Case:{" "}
+									{
+										sortingAlgorithmsData[selectedAlgorithm]
+											.averageCase
+									}
+								</p>
+							</div>
+						</div>
+					</div>
 					<div className="relative h-[calc(100vh-66px)] w-full">
 						<div className="absolute bottom-[32px] w-full left-0 right-0 flex justify-center items-end">
 							{arrayToSort.map((value, index) => {
@@ -129,6 +168,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			{/* <BackgroundBeams /> */}
 		</main>
 	);
 }
