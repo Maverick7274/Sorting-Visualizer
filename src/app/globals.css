@@ -78,11 +78,11 @@
 
 .default-line-color
 {
-  background-color: theme('colors.system.blue300');
+  background-color: #1e40af;
 }
 
-.changed-line-color
+.change-line-color
 {
-  background-color: theme('colors.system.green300');
+  background-color: #115e59;
 }
 

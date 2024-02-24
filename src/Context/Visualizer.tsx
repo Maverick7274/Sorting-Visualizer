@@ -66,6 +66,22 @@ export const SortingAlgorithmProvider = ({
 		setArrayToSort(tempArray);
 		setIsAnimationComplete(false);
 		setIsSorting(false);
+
+        const highestId = window.setTimeout(() => {
+            for (let i = highestId; i >= 0; i--) {
+                window.clearTimeout(i);
+            }
+        }, 0);
+
+        setTimeout(() => {
+            const arrayLines = document.getElementsByClassName(
+                "array-line"
+            ) as HTMLCollectionOf<HTMLElement>;
+            for (let i = 0; i < arrayLines.length; i++) {
+                arrayLines[i].classList.remove("change-line-color");
+                arrayLines[i].classList.add("default-line-color");
+            }
+        }, 0);
 	};
 
     const runAnimation = (animations: AnimationArrayType) => {
@@ -119,22 +135,6 @@ export const SortingAlgorithmProvider = ({
           }, index * inverseSpeed);
         });
     
-        const finalTimeout = animations.length * inverseSpeed;
-        setTimeout(() => {
-          Array.from(arrLines).forEach((line) => {
-            line.classList.add("pulse-animation", "change-line-color");
-            line.classList.remove("default-line-color");
-          });
-    
-          setTimeout(() => {
-            Array.from(arrLines).forEach((line) => {
-              line.classList.remove("pulse-animation", "change-line-color");
-              line.classList.add("default-line-color");
-            });
-            setIsSorting(false);
-            setIsAnimationComplete(true);
-          }, 1000);
-        }, finalTimeout);
       };
 
 	const value = {

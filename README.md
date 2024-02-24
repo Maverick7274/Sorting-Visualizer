@@ -13,6 +13,7 @@ This is a Sorting Visualizer built with Next.js, TypeScript, and Shadcn/UI. It a
 
 - Next.js: A React framework for building server-side rendered and static websites
 - TypeScript: A statically typed superset of JavaScript that compiles to plain JavaScript
+- Tailwind CSS: A utility-first CSS framework for quickly building custom designs
 - Shadcn/UI: A UI library for creating beautiful and responsive user interfaces
 
 ## Getting Started
