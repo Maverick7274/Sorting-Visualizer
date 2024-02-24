@@ -22,5 +22,5 @@ To get started with the Sorting Visualizer, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/Sorting-Visualizer.git
+   git clone https://github.com/Maverick7274/Sorting-Visualizer.git
    ```
